@@ -1,6 +1,6 @@
 import { state } from './state.js';
 import { hitungJarak, formatJarak } from './utils.js';
-import { displaySchoolList } from './ui.js';
+import { displaySchoolList, showLoading, hideLoading } from './ui.js';
 
 /**
  * Handle getting the current user location via Geolocation API
@@ -11,14 +11,18 @@ export function getCurrentLocation() {
         return;
     }
 
+    showLoading();
+
     navigator.geolocation.getCurrentPosition(
         function (position) {
             setUserLocation(
                 position.coords.latitude,
                 position.coords.longitude
             );
+            hideLoading();
         },
         function (error) {
+            hideLoading();
             alert('Tidak dapat mengakses lokasi Anda. Pastikan Anda memberikan izin akses lokasi.');
             console.error('Geolocation error:', error);
         }

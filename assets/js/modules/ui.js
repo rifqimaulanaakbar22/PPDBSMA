@@ -57,9 +57,6 @@ export function displaySchoolList(schools, showDistance = false) {
 
     let html = '';
     schools.forEach(school => {
-        const fotoHtml = (school.foto && school.foto !== '')
-            ? `<img src="uploads/sekolah/${school.foto}" alt="${school.nama}" class="school-img me-3">`
-            : `<div class="school-img-placeholder me-3"><i class="bi bi-building"></i></div>`;
 
         const distanceBadge = showDistance && school.distance
             ? `<span class="badge ${school.inZone ? 'badge-in-zone' : 'badge-out-zone'} ms-2">
@@ -81,7 +78,6 @@ export function displaySchoolList(schools, showDistance = false) {
                  onclick="window.selectSchool(${school.id})">
                 <div class="card-body p-3">
                     <div class="d-flex align-items-start">
-                        ${fotoHtml}
                         <div class="flex-fill">
                             <h6 class="mb-1 fw-bold">
                                 ${school.nama}
@@ -155,4 +151,26 @@ export function updateListTitle(count) {
     if (listTitle) {
         listTitle.textContent = `Daftar SMA (${count})`;
     }
+}
+
+/**
+ * Show loading spinner
+ */
+export function showLoading() {
+    const spinner = document.getElementById('loadingSpinner');
+    if (spinner) spinner.style.display = 'block';
+
+    const schoolList = document.getElementById('schoolList');
+    if (schoolList) schoolList.style.opacity = '0.5';
+}
+
+/**
+ * Hide loading spinner
+ */
+export function hideLoading() {
+    const spinner = document.getElementById('loadingSpinner');
+    if (spinner) spinner.style.display = 'none';
+
+    const schoolList = document.getElementById('schoolList');
+    if (schoolList) schoolList.style.opacity = '1';
 }

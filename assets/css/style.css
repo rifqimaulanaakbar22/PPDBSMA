@@ -1,112 +1,553 @@
-/* Map Container */
-#map {
-    height: 550px;
-    width: 100%;
+:root {
+    --primary-color: #0c4da2;
+    --secondary-color: #f82a2a;
+    --accent-color: #e3f2fd;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    --gov-blue: #083a71;
+    --gov-light: #f8fafc;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    background-color: #f8fafc;
+    line-height: 1.6;
+}
+
+/* Navbar Tuning */
+.navbar {
+    background-color: var(--white) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 1rem 0;
+    z-index: 1030;
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+    font-size: 1.4rem;
+}
+
+.nav-link {
+    color: #4b8cd1 !important;
+    /* Portal Blue */
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.5rem 1.2rem !important;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 0.8rem;
+    min-width: 220px;
+}
+
+.dropdown-item {
+    color: #4b8cd1;
+    font-weight: 500;
+    padding: 0.7rem 1rem;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #0c4da2 0%, #1e40af 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 0 !important;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: rotate(-15deg);
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Requirements Grid */
+.requirements-container {
+    margin-top: -50px;
+}
+
+.req-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Accordion Custom */
+.accordion-item {
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 8px !important;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.accordion-button {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    box-shadow: none;
+}
+
+/* Map & List */
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.school-list {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 10px;
 }
 
 /* School Card */
 .school-card {
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
+    border: 1px solid #f1f5f9;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .school-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border-color: #0d6efd;
+    border-color: var(--primary-color);
+    transform: translateX(5px);
 }
 
 .school-card.active {
-    border-color: #0d6efd;
-    background-color: #f0f7ff;
+    box-shadow: 0 0 0 2px var(--primary-color);
+    background-color: var(--accent-color);
 }
 
-/* School Image */
-.school-img {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 6px;
-    border: 2px solid #e0e0e0;
+/* Global Transitions */
+.btn,
+.form-control,
+.card {
+    transition: all 0.2s ease-in-out;
 }
 
-.school-img-placeholder {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    color: white;
-    font-size: 1.5rem;
-}
-
-/* School List Container */
-.school-list {
-    max-height: 550px;
-    overflow-y: auto;
-    padding-right: 8px;
-}
-
-/* Custom Scrollbar */
+/* Scrollbar Custom */
 .school-list::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 .school-list::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
+    background: transparent;
 }
 
 .school-list::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #cbd5e1;
     border-radius: 10px;
 }
 
 .school-list::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #94a3b8;
 }
 
-/* Badge Custom */
-.badge-in-zone {
-    background-color: #198754;
-    font-size: 0.75rem;
-    padding: 4px 8px;
+/* Badge System */
+.badge-ppdb {
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-weight: 500;
 }
 
-.badge-out-zone {
-    background-color: #ffc107;
-    color: #000;
-    font-size: 0.75rem;
-    padding: 4px 8px;
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Feature Cards */
+.feature-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.feature-card {
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s ease;
+    border-radius: var(--radius-md) !important;
+}
+
+.feature-card:hover {
+    box-shadow: 0 15px 35px rgba(8, 58, 113, 0.1) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-5px);
+}
+
+/* Stepper Mechanism */
+.step-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+    display: flex;
+}
+
+.step-number {
+    width: 45px;
+    height: 45px;
+    background: var(--primary-color);
     color: white;
-    padding: 2.5rem 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(12, 77, 162, 0.3);
 }
 
-/* Stats Box */
-.stats-box {
-    background: white;
-    border-radius: 8px;
+.step-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 22.5px;
+    top: 45px;
+    bottom: 0;
+    width: 2px;
+    background: #e2e8f0;
+    z-index: 1;
+}
+
+.step-content {
+    padding-top: 8px;
+}
+
+/* Section Header Decoration */
+.section-title-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.section-title-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Responsive */
+.req-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Accordion Custom */
+.accordion-item {
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 8px !important;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.accordion-button {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    box-shadow: none;
+}
+
+/* Map & List */
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.school-list {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* School Card */
+.school-card {
+    cursor: pointer;
+    border: 1px solid #f1f5f9;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
     padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: var(--white);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Loading Spinner */
-.loading-spinner {
-    display: none;
-    text-align: center;
-    padding: 2rem;
+.school-card:hover {
+    border-color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.school-card.active {
+    box-shadow: 0 0 0 2px var(--primary-color);
+    background-color: var(--accent-color);
+}
+
+/* Global Transitions */
+.btn,
+.form-control,
+.card {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Scrollbar Custom */
+.school-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.school-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.school-list::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.school-list::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Badge System */
+.badge-ppdb {
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-weight: 500;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Feature Cards */
+.feature-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.feature-card {
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s ease;
+    border-radius: var(--radius-md) !important;
+}
+
+.feature-card:hover {
+    box-shadow: 0 15px 35px rgba(8, 58, 113, 0.1) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateY(-5px);
+}
+
+/* Stepper Mechanism */
+.step-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+    display: flex;
+}
+
+.step-number {
+    width: 45px;
+    height: 45px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(12, 77, 162, 0.3);
+}
+
+.step-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 22.5px;
+    top: 45px;
+    bottom: 0;
+    width: 2px;
+    background: #e2e8f0;
+    z-index: 1;
+}
+
+.step-content {
+    padding-top: 8px;
+}
+
+/* Section Header Decoration */
+.section-title-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.section-title-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .requirements-container {
+        margin-top: 0;
+    }
+}
+
+/* School Directory Section */
+.bg-gov-light {
+    background-color: #f8fafc;
+}
+
+.directory-card {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 20px;
+}
+
+.directory-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1) !important;
+}
+
+.directory-img {
+    transition: transform 0.6s ease;
+}
+
+.directory-card:hover .directory-img {
+    transform: scale(1.05);
+}
+
+.directory-filter-bar {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2.5rem;
 }
 
 /* Search Suggestions */
@@ -116,14 +557,14 @@
     left: 0;
     right: 0;
     background: white;
-    border: 1px solid #ddd;
-    border-top: none;
-    border-radius: 0 0 6px 6px;
-    max-height: 250px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    z-index: 1050;
+    max-height: 300px;
     overflow-y: auto;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: none;
+    border: 1px solid #e2e8f0;
+    margin-top: 5px;
 }
 
 .search-suggestions.show {
@@ -131,40 +572,47 @@
 }
 
 .suggestion-item {
-    padding: 10px 15px;
+    padding: 12px 15px;
     cursor: pointer;
-    border-bottom: 1px solid #f0f0f0;
-    transition: background 0.2s;
-}
-
-.suggestion-item:hover {
-    background: #f8f9fa;
+    border-bottom: 1px solid #f1f5f9;
+    color: var(--text-dark);
 }
 
 .suggestion-item:last-child {
     border-bottom: none;
 }
 
-.suggestion-highlight {
-    font-weight: bold;
-    color: #0d6efd;
+.suggestion-item:hover {
+    background-color: var(--accent-color);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    #map {
-        height: 400px;
-    }
+.suggestion-item .highlight {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: underline;
+}
 
-    .school-list {
-        max-height: 400px;
-    }
+/* Loading Spinner */
+.loading-spinner {
+    padding: 20px;
+    text-align: center;
+    color: var(--primary-color);
+    display: none;
+}
 
-    .hero-section {
-        padding: 1.5rem 0;
-    }
+/* Sidebar List Tuning */
+.school-list {
+    min-height: 200px;
+}
 
-    .hero-section h1 {
-        font-size: 1.75rem;
-    }
+.badge-in-zone {
+    background-color: #dcfce7;
+    color: #166534;
+    font-size: 0.7rem;
+}
+
+.badge-out-zone {
+    background-color: #fee2e2;
+    color: #991b1b;
+    font-size: 0.7rem;
 }

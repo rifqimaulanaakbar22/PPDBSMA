@@ -46,5 +46,5 @@ export function formatJarak(meter) {
 export function highlightText(text, keyword) {
     if (!keyword) return text;
     const regex = new RegExp(`(${keyword})`, 'gi');
-    return text.replace(regex, '<span class="suggestion-highlight">$1</span>');
+    return text.replace(regex, '<span class="highlight">$1</span>');
 }

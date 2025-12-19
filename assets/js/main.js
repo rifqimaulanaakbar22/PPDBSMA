@@ -11,6 +11,7 @@ window.clearSchoolSearch = clearSchoolSearch;
 window.resetAllFilters = resetAllFilters;
 window.getCurrentLocation = getCurrentLocation;
 window.selectSchoolFromSuggestion = selectSchoolFromSuggestion;
+window.resetDirectoryFilters = resetDirectoryFilters;
 
 /**
  * Initialize on page load
@@ -64,8 +65,64 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Directory Filtering Logic
+    const dirSearch = document.getElementById('dirSearch');
+    const dirFilterKec = document.getElementById('dirFilterKec');
+
+    if (dirSearch && dirFilterKec) {
+        const filterDir = () => {
+            const searchVal = dirSearch.value.toLowerCase();
+            const kecVal = dirFilterKec.value.toLowerCase();
+            const items = document.querySelectorAll('.directory-item');
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                const name = item.getAttribute('data-nama');
+                const kec = item.getAttribute('data-kecamatan');
+                const matchesSearch = name.includes(searchVal);
+                const matchesKec = kecVal === '' || kec === kecVal;
+
+                if (matchesSearch && matchesKec) {
+                    item.classList.remove('d-none');
+                    visibleCount++;
+                } else {
+                    item.classList.add('d-none');
+                }
+            });
+
+            const dirCount = document.getElementById('dirCount');
+            if (dirCount) dirCount.textContent = visibleCount;
+
+            const dirEmpty = document.getElementById('dirEmpty');
+            if (dirEmpty) {
+                if (visibleCount === 0) {
+                    dirEmpty.classList.remove('d-none');
+                } else {
+                    dirEmpty.classList.add('d-none');
+                }
+            }
+        };
+
+        dirSearch.addEventListener('input', filterDir);
+        dirFilterKec.addEventListener('change', filterDir);
+    }
+
     console.log('Sistem Zonasi SMA Padang loaded successfully!');
     if (window.sekolahData) {
         console.log('Total sekolah:', window.sekolahData.length);
     }
 });
+
+/**
+ * Reset all filters in the directory section
+ */
+export function resetDirectoryFilters() {
+    const dirSearch = document.getElementById('dirSearch');
+    const dirFilterKec = document.getElementById('dirFilterKec');
+    if (dirSearch) dirSearch.value = '';
+    if (dirFilterKec) dirFilterKec.value = '';
+
+    // Trigger filter
+    const event = new Event('input');
+    if (dirSearch) dirSearch.dispatchEvent(event);
+}
