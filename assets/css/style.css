@@ -1,0 +1,170 @@
+/* Map Container */
+#map {
+    height: 550px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* School Card */
+.school-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.school-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: #0d6efd;
+}
+
+.school-card.active {
+    border-color: #0d6efd;
+    background-color: #f0f7ff;
+}
+
+/* School Image */
+.school-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid #e0e0e0;
+}
+
+.school-img-placeholder {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* School List Container */
+.school-list {
+    max-height: 550px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* Custom Scrollbar */
+.school-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.school-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.school-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.school-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Badge Custom */
+.badge-in-zone {
+    background-color: #198754;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+}
+
+.badge-out-zone {
+    background-color: #ffc107;
+    color: #000;
+    font-size: 0.75rem;
+    padding: 4px 8px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2.5rem 0;
+}
+
+/* Stats Box */
+.stats-box {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Search Suggestions */
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.search-suggestions.show {
+    display: block;
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+}
+
+.suggestion-item:hover {
+    background: #f8f9fa;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-highlight {
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #map {
+        height: 400px;
+    }
+
+    .school-list {
+        max-height: 400px;
+    }
+
+    .hero-section {
+        padding: 1.5rem 0;
+    }
+
+    .hero-section h1 {
+        font-size: 1.75rem;
+    }
+}

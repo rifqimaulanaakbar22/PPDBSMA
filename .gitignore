@@ -1,0 +1,20 @@
+# OS Specific Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE/Editor Configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project Specific
+uploads/*
+!uploads/.gitkeep
+
+# Environment/Sensitive (Common patterns)
+.env
+*.log
+node_modules/
+vendor/
