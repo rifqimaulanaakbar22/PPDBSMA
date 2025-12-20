@@ -57,7 +57,10 @@ export function displaySchoolsOnMap(schools = null) {
 
         // Add marker
         const marker = L.marker([school.latitude, school.longitude])
-            .bindPopup(createPopupContent(school))
+            .bindPopup(createPopupContent(school), {
+                maxWidth: 500,
+                autoPanPadding: [60, 60]
+            })
             .addTo(state.map);
 
         marker.schoolId = school.id;

@@ -7,28 +7,28 @@ import { state } from './state.js';
  */
 export function createPopupContent(school) {
     return `
-        <div class="popup-content" style="min-width: 200px;">
-            <h6 class="fw-bold mb-2">${school.nama}</h6>
-            <p class="small mb-1">
+        <div class="popup-content" style="min-width: 408px; padding: 18px;">
+            <h5 class="fw-bold mb-3" style="font-size: 1.5rem;">${school.nama}</h5>
+            <p class="mb-2" style="font-size: 3rem;">
                 <i class="bi bi-geo-alt"></i> ${school.alamat}
             </p>
-            <p class="small mb-1">
+            <p class="mb-2" style="font-size: 3rem;">
                 <i class="bi bi-pin-map"></i> ${school.kecamatan}
             </p>
-            <p class="small mb-2">
+            <p class="mb-2" style="font-size: 3rem;">
                 <i class="bi bi-award"></i> Akreditasi 
                 <strong>${school.akreditasi}</strong>
             </p>
-            <p class="small mb-2">
+            <p class="mb-2" style="font-size: 3rem;">
                 <i class="bi bi-award"></i> Kuota Penerimaan 
-                <strong>${school.kuota} </strong><medium>siswa</medium>
+                <strong>${school.kuota} </strong>siswa
             </p>
-            <p class="small mb-2">
+            <p class="mb-3" style="font-size: 3rem;">
                 <i class="bi bi-award"></i> Jalur Penerimaan 
                 <strong>Zonasi, Prestasi</strong>
             </p>
-            <a href="detail.php?id=${school.id}" 
-               class="btn btn-primary btn-sm w-100 text-white">
+            <a href="${BASE_URL}portal/detail.php?id=${school.id}" 
+               class="btn btn-primary w-100 text-white" style="padding: 14px; font-size: 1.2rem;">
                 <i class="bi bi-info-circle"></i> Lihat Detail
             </a>
         </div>
@@ -136,7 +136,10 @@ export function selectSchool(schoolId) {
     if (marker) {
         // BUAT ULANG POPUP SETIAP KALI DIKLIK DARI LIST
         const popupHTML = createPopupContent(school);
-        marker.bindPopup(popupHTML).openPopup();
+        marker.bindPopup(popupHTML, {
+            maxWidth: 456,
+            autoPanPadding: [60, 60]
+        }).openPopup();
     }
 
     state.selectedSchoolId = schoolId;

@@ -42,10 +42,10 @@ export function setUserLocation(lat, lng) {
         state.map.removeLayer(state.userMarker);
     }
 
-    // Add new user marker (green)
+    // Add new user marker (red)
     state.userMarker = L.marker([lat, lng], {
         icon: L.icon({
-            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],
@@ -54,7 +54,7 @@ export function setUserLocation(lat, lng) {
         })
     }).addTo(state.map);
 
-    state.userMarker.bindPopup('<strong>Lokasi Anda</strong>').openPopup();
+    state.userMarker.bindPopup('<strong>Anda disini</strong>').openPopup();
 
     // Pan map to user location
     state.map.setView([lat, lng], 14);

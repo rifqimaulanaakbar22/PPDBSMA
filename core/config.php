@@ -3,6 +3,7 @@ define('APP_NAME', 'Sistem PPDB SMA Padang');
 define('APP_DESCRIPTION', 'Temukan SMA Negeri di Kota Padang dengan sistem zonasi PPDB');
 define('APP_KEYWORDS', 'SMA Padang, Zonasi, PPDB, Sekolah Padang');
 define('APP_VERSION', '1.0.0');
+define('BASE_URL', '/zonasi/');
 
 $host = "localhost";
 $user = "root";

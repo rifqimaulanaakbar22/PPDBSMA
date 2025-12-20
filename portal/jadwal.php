@@ -1,10 +1,10 @@
 <?php
-require_once 'config.php';
-require_once 'includes/functions.php';
+require_once '../core/config.php';
+require_once '../core/functions.php';
 ?>
 
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/navbar.php'; ?>
+<?php include '../includes/header.php'; ?>
+<?php include '../includes/navbar.php'; ?>
 
 <main class="py-5 bg-light min-vh-100">
     <div class="container py-4">
@@ -136,4 +136,4 @@ require_once 'includes/functions.php';
     </div>
 </main>
 
-<?php include 'includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

@@ -4,7 +4,7 @@ if (!isset($_SESSION['admin_id'])) {
     header('Location: login.php');
     exit;
 }
-require_once '../config.php';
+require_once '../core/config.php';
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $error = '';

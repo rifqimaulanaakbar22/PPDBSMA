@@ -1,5 +1,5 @@
 <?php
-require_once '../config.php';
+require_once '../core/config.php';
 session_start();
 
 // Redirect if not logged in
@@ -175,6 +175,8 @@ $username = $_SESSION['username'];
         </div>
     </div>
 </div>
+
+<?php include '../includes/footer.php'; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

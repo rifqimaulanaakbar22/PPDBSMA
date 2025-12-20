@@ -1,10 +1,10 @@
     <!-- Footer -->
-    <footer class="bg-gov-blue text-white py-5 mt-5">
+    <footer class="bg-light text-dark py-5 mt-5 border-top">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4 mb-4 mb-lg-0">
                     <div class="d-flex align-items-center mb-3">
-                        <img src="tutwurinobg.png" alt="Logo" width="50" height="50" class="me-3 bg-white rounded-circle p-1">
+                        <img src="<?php echo BASE_URL; ?>assets/img/logo_kemdikbud.png" alt="Logo" width="50" height="50" class="me-3 bg-white rounded-circle p-1">
                         <div>
                             <h5 class="fw-bold mb-0">PPDB SMA Padang</h5>
                             <small class="opacity-75">Dinas Pendidikan Kota Padang</small>
@@ -14,20 +14,20 @@
                         Sistem Penerimaan Peserta Didik Baru (PPDB) SMA Negeri Kota Padang merupakan portal resmi pendaftaran dan informasi zona sekolah secara transparan dan akuntabel.
                     </p>
                     <div class="d-flex gap-3 fs-5">
-                        <a href="#" class="text-white opacity-75"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-white opacity-75"><i class="bi bi-twitter-x"></i></a>
-                        <a href="#" class="text-white opacity-75"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-white opacity-75"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="text-black opacity-75"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-black opacity-75"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="text-black opacity-75"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-black opacity-75"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
                 
                 <div class="col-md-4 col-lg-2">
                     <h6 class="fw-bold mb-4">Layanan & Info</h6>
                     <ul class="list-unstyled small opacity-75">
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Jadwal PPDB</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Alur Pendaftaran</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Persyaratan Jalur</a></li>
-                        <li class="mb-2"><a href="kuota.php" class="text-white text-decoration-none">Daya Tampung</a></li>
+                        <li class="mb-2"><a href="#" class="text-black text-decoration-none">Jadwal PPDB</a></li>
+                        <li class="mb-2"><a href="#" class="text-black text-decoration-none">Alur Pendaftaran</a></li>
+                        <li class="mb-2"><a href="#" class="text-black text-decoration-none">Persyaratan Jalur</a></li>
+                        <li class="mb-2"><a href="kuota.php" class="text-black text-decoration-none">Daya Tampung</a></li>
                     </ul>
                 </div>
                 
@@ -52,10 +52,10 @@
                 <div class="col-md-4 col-lg-3">
                     <h6 class="fw-bold mb-4">Tautan Terkait</h6>
                     <ul class="list-unstyled small opacity-75">
-                        <li class="mb-2"><a href="https://kemdikbud.go.id" class="text-white text-decoration-none" target="_blank">Kemdikbudristek</a></li>
-                        <li class="mb-2"><a href="https://sumbarprov.go.id" class="text-white text-decoration-none" target="_blank">Pemprov Sumatera Barat</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Dinas Pendidikan Sumbar</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Portal Pendidikan Padang</a></li>
+                        <li class="mb-2"><a href="https://kemdikbud.go.id" class="text-black text-decoration-none" target="_blank">Kemdikbudristek</a></li>
+                        <li class="mb-2"><a href="https://sumbarprov.go.id" class="text-black text-decoration-none" target="_blank">Pemprov Sumatera Barat</a></li>
+                        <li class="mb-2"><a href="#" class="text-black text-decoration-none">Dinas Pendidikan Sumbar</a></li>
+                        <li class="mb-2"><a href="#" class="text-black text-decoration-none">Portal Pendidikan Padang</a></li>
                     </ul>
                 </div>
             </div>
@@ -78,6 +78,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <!-- Custom JavaScript -->
-    <script type="module" src="assets/js/main.js"></script>
+    <script type="module" src="<?php echo BASE_URL; ?>assets/js/main.js"></script>
 </body>
 </html>

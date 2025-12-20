@@ -15,11 +15,32 @@
     --gov-light: #f8fafc;
 }
 
+html {
+    zoom: 1.1;
+}
+
 body {
     font-family: var(--font-main);
     color: var(--text-dark);
     background-color: #f8fafc;
     line-height: 1.6;
+}
+
+/* Wider Container */
+.container {
+    max-width: 1400px;
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1540px;
+    }
 }
 
 /* Navbar Tuning */

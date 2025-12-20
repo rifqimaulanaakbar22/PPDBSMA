@@ -1,18 +1,24 @@
 <?php
-require_once 'config.php';
+require_once '../core/config.php';
+require_once '../core/functions.php';
 
 // Fetch schools for monitoring
-$query = "SELECT * FROM sekolah ORDER BY nama_sekolah ASC";
+$query = "SELECT * FROM sekolah";
 $result = mysqli_query($conn, $query);
 
 $sekolah_list = [];
 while ($row = mysqli_fetch_assoc($result)) {
     $sekolah_list[] = $row;
 }
+
+// Natural sort by name (SMAN 1, 2, 3... 10, 11 instead of SMAN 1, 10, 11...)
+usort($sekolah_list, function($a, $b) {
+    return strnatcasecmp($a['nama'], $b['nama']);
+});
 ?>
 
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/navbar.php'; ?>
+<?php include '../includes/header.php'; ?>
+<?php include '../includes/navbar.php'; ?>
 
 <main class="py-5 bg-gov-light">
     <div class="container py-4">
@@ -90,13 +96,13 @@ while ($row = mysqli_fetch_assoc($result)) {
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($sekolah_list as $s): ?>
+                            <?php foreach ($sekolah_list as $s ): ?>
                             <tr>
                                 <td class="ps-4">
                                     <span class="badge bg-light text-dark fw-normal"><?php echo $s['npsn']; ?></span>
                                 </td>
                                 <td>
-                                    <div class="fw-bold text-dark"><?php echo $s['nama_sekolah']; ?></div>
+                                    <div class="fw-bold text-dark"><?php echo $s['nama']; ?></div>
                                     <small class="text-muted"><?php echo $s['alamat']; ?></small>
                                 </td>
                                 <td><?php echo $s['kecamatan']; ?></td>
@@ -104,7 +110,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                                     <span class="badge bg-primary rounded-pill px-3"><?php echo $s['kuota']; ?> Siswa</span>
                                 </td>
                                 <td class="text-center">
-                                    <a href="detail.php?npsn=<?php echo $s['npsn']; ?>" class="btn btn-sm btn-outline-primary rounded-pill">Detail</a>
+                                    <a href="detail.php?id=<?php echo $s['id']; ?>" class="btn btn-sm btn-outline-primary rounded-pill">Detail</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -127,4 +133,4 @@ while ($row = mysqli_fetch_assoc($result)) {
     });
 </script>
 
-<?php include 'includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

@@ -4,7 +4,7 @@ if (!isset($_SESSION['admin_id'])) {
     header('Location: login.php');
     exit;
 }
-require_once '../config.php';
+require_once '../core/config.php';
 
 $search = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : '';
 

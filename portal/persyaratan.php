@@ -1,10 +1,10 @@
 <?php
-require_once 'config.php';
-require_once 'includes/functions.php';
+require_once '../core/config.php';
+require_once '../core/functions.php';
 ?>
 
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/navbar.php'; ?>
+<?php include '../includes/header.php'; ?>
+<?php include '../includes/navbar.php'; ?>
 
 <style>
     .requirement-card {
@@ -135,105 +135,71 @@ require_once 'includes/functions.php';
             <!-- PERSYARATAN UMUM -->
             <div class="tab-pane fade show active" id="tab-umum" role="tabpanel">
                 <div class="requirement-card p-4 p-lg-5">
-                    <div class="row align-items-center mb-5">
-                        <div class="col-auto">
-                            <div class="bg-gov-blue text-white p-3 rounded-4 shadow-sm">
-                                <i class="bi bi-journal-check fs-2"></i>
-                            </div>
+                    <!-- Header -->
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="bg-gov-blue text-white p-3 rounded-4 shadow-sm me-3">
+                            <i class="bi bi-journal-check fs-3"></i>
                         </div>
-                        <div class="col">
-                            <h3 class="fw-bold mb-0">Persyaratan Umum SPMB</h3>
-                            <p class="text-muted mb-0">Ketentuan dasar yang berlaku untuk semua jalur pendaftaran SMA & SMK Negeri.</p>
+                        <div>
+                            <h4 class="fw-bold mb-1">Ketentuan Dasar SPMB 2025</h4>
+                            <p class="text-muted mb-0 small">Berlaku untuk semua jalur pendaftaran SMA & SMK Negeri</p>
                         </div>
                     </div>
-
-                    <div class="row g-4">
-                        <div class="col-lg-6">
-                            <div class="p-4 bg-light rounded-4 h-100 border border-white">
-                                <h5 class="fw-bold text-dark mb-4"><i class="bi bi-person-check text-primary me-2"></i> Kriteria Usia & Identitas</h5>
-                                <ul class="list-requirement">
-                                    <li>Berusia paling tinggi <strong>21 tahun</strong> pada tanggal 1 Juli tahun berjalan.</li>
-                                    <li>Dibuktikan dengan <strong>Akta Kelahiran</strong> atau Surat Keterangan Lahir resmi yang dilegalisasi.</li>
-                                    <li class="text-primary fw-semibold">Khusus penyandang disabilitas dikecualikan dari persyaratan usia.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="p-4 bg-light rounded-4 h-100 border border-white">
-                                <h5 class="fw-bold text-dark mb-4"><i class="bi bi-mortarboard text-primary me-2"></i> Kualifikasi Pendidikan</h5>
-                                <ul class="list-requirement">
-                                    <li>Telah menyelesaikan kelas 9 SMP/MTs atau sederajat.</li>
-                                    <li>Memiliki <strong>Ijazah</strong> atau dokumen kelulusan resmi (seperti SKL).</li>
-                                    <li>Terbuka bagi lulusan tahun berjalan maupun lulusan tahun sebelumnya.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-12 mt-4">
-                            <div class="alert alert-warning border-0 rounded-4 d-flex align-items-center mb-0">
-                                <i class="bi bi-exclamation-triangle-fill fs-3 me-3 text-warning"></i>
-                                <div>
-                                    <p class="mb-0 fw-medium">Calon murid yang sudah diterima di <strong>sekolah boarding negeri</strong> tidak dapat mengikuti SPMB baik ke SMA Negeri maupun ke SMK Negeri.</p>
-                                </div>
-            <!-- TAB 1: PERSYARATAN UMUM -->
-    <div class="tab-pane fade show active" id="tab-umum" role="tabpanel">
-        <div class="row g-4">
-            <div class="col-lg-8">
-                <div class="p-4 bg-white rounded-4 shadow-sm h-100">
-                    <h5 class="fw-bold mb-4 border-bottom pb-3"><i class="bi bi-info-circle me-2 text-primary"></i>Ketentuan Dasar SPMB 2025</h5>
-                    <div class="requirement-list">
-                        <div class="d-flex mb-4">
-                            <div class="me-3 fs-3 text-primary"><i class="bi bi-calendar-check"></i></div>
+                    
+                    <!-- Ketentuan Items -->
+                    <div class="mb-4">
+                        <div class="d-flex p-3 bg-light rounded-3 mb-3">
+                            <div class="me-3 text-primary"><i class="bi bi-calendar-check fs-4"></i></div>
                             <div>
                                 <h6 class="fw-bold mb-1">Batas Usia Maksimal</h6>
-                                <p class="text-muted small mb-0">Calon murid baru SMA/SMK berusia paling tinggi <strong>21 (dua puluh satu) tahun</strong> pada 01 Juli 2025.</p>
-                                <span class="badge bg-light text-dark border mt-1 fw-medium">*Dikecualikan bagi penyandang disabilitas</span>
+                                <p class="text-muted small mb-1">Calon murid baru SMA/SMK berusia paling tinggi <strong>21 (dua puluh satu) tahun</strong> pada 01 Juli 2025.</p>
+                                <span class="badge bg-primary bg-opacity-10 text-primary">*Dikecualikan bagi penyandang disabilitas</span>
                             </div>
                         </div>
-                        <div class="d-flex mb-4">
-                            <div class="me-3 fs-3 text-primary"><i class="bi bi-file-earmark-text"></i></div>
+                        <div class="d-flex p-3 bg-light rounded-3 mb-3">
+                            <div class="me-3 text-primary"><i class="bi bi-file-earmark-text fs-4"></i></div>
                             <div>
                                 <h6 class="fw-bold mb-1">Dokumen Kelahiran</h6>
                                 <p class="text-muted small mb-0">Dibuktikan dengan Akta Kelahiran asli atau Surat Keterangan Lahir yang dilegalisasi oleh Lurah/Wali Nagari setempat sesuai domisili.</p>
                             </div>
                         </div>
-                        <div class="d-flex mb-4">
-                            <div class="me-3 fs-3 text-primary"><i class="bi bi-mortarboard"></i></div>
+                        <div class="d-flex p-3 bg-light rounded-3 mb-3">
+                            <div class="me-3 text-primary"><i class="bi bi-mortarboard fs-4"></i></div>
                             <div>
                                 <h6 class="fw-bold mb-1">Kualifikasi Pendidikan</h6>
                                 <p class="text-muted small mb-0">Telah menyelesaikan kelas 9 SMP/MTs sederajat, dibuktikan dengan <strong>Ijazah</strong> atau <strong>Surat Keterangan Lulus (SKL)</strong>.</p>
                             </div>
                         </div>
-                        <div class="d-flex mb-0">
-                            <div class="me-3 fs-3 text-primary"><i class="bi bi-house-slash"></i></div>
+                        <div class="d-flex p-3 bg-light rounded-3">
+                            <div class="me-3 text-danger"><i class="bi bi-house-slash fs-4"></i></div>
                             <div>
                                 <h6 class="fw-bold mb-1">Larangan Boarding School</h6>
                                 <p class="text-muted small mb-0">Calon murid yang sudah diterima di <strong>Sekolah Boarding Negeri</strong> tidak dapat lagi mengikuti SPMB online.</p>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Dasar Hukum -->
+                    <div class="p-4 bg-primary bg-opacity-10 rounded-4 border border-primary border-opacity-25">
+                        <h5 class="fw-bold mb-3 text-primary"><i class="bi bi-shield-check me-2"></i>Dasar Hukum</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
+                                <span class="small">Permendikdasmen RI No. 3 Tahun 2025 tentang SPMB</span>
+                            </li>
+                            <li class="mb-2 d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
+                                <span class="small">Peraturan Daerah Prov. Sumbar No. 2 Tahun 2019</span>
+                            </li>
+                            <li class="d-flex align-items-start">
+                                <i class="bi bi-check-circle-fill text-primary me-2 mt-1"></i>
+                                <span class="small">Keputusan Kepala Dinas Pendidikan Sumbar No. 423/405/KPTS-2025</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="p-4 bg-primary text-white rounded-4 shadow-sm h-100">
-                    <h5 class="fw-bold mb-4"><i class="bi bi-shield-check me-2"></i>Dasar Hukum</h5>
-                    <ul class="list-unstyled small mb-0">
-                        <li class="mb-3 d-flex align-items-start">
-                            <i class="bi bi-check-circle-fill me-2 mt-1"></i>
-                            <span>Permendikdasmen RI No. 3 Tahun 2025 tentang SPMB</span>
-                        </li>
-                        <li class="mb-3 d-flex align-items-start">
-                            <i class="bi bi-check-circle-fill me-2 mt-1"></i>
-                            <span>Peraturan Daerah Prov. Sumbar No. 2 Tahun 2019</span>
-                        </li>
-                        <li class="d-flex align-items-start">
-                            <i class="bi bi-check-circle-fill me-2 mt-1"></i>
-                            <span>Keputusan Kepala Dinas Pendidikan Sumbar No. 423/405/KPTS-2025</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
             <!-- TAB 2: JALUR DOMISILI -->
     <div class="tab-pane fade" id="tab-zonasi" role="tabpanel">
@@ -526,4 +492,4 @@ require_once 'includes/functions.php';
     </div>
 </div>
 
-<?php include 'includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

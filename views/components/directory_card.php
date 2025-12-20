@@ -4,8 +4,8 @@
     <div class="card h-100 directory-card border-0 shadow-sm overflow-hidden animate-fade-in">
         <!-- School Image / Placeholder -->
         <div class="position-relative">
-            <?php if (!empty($sekolah['foto']) && file_exists('uploads/sekolah/' . $sekolah['foto'])): ?>
-                <img src="uploads/sekolah/<?php echo htmlspecialchars($sekolah['foto']); ?>" 
+            <?php if (!empty($sekolah['foto']) && file_exists(dirname(dirname(__DIR__)) . '/uploads/sekolah/' . $sekolah['foto'])): ?>
+                <img src="<?php echo BASE_URL; ?>uploads/sekolah/<?php echo htmlspecialchars($sekolah['foto']); ?>" 
                      alt="<?php echo htmlspecialchars($sekolah['nama']); ?>"
                      class="directory-img w-100" style="height: 180px; object-fit: cover;">
             <?php else: ?>
@@ -44,7 +44,7 @@
                     <i class="bi bi-map me-1"></i>
                     <span>Zonasi Utama</span>
                 </div>
-                <a href="detail.php?id=<?php echo $sekolah['id']; ?>" class="btn btn-primary btn-sm rounded-pill px-4 fw-bold">
+                <a href="<?php echo BASE_URL; ?>portal/detail.php?id=<?php echo $sekolah['id']; ?>" class="btn btn-primary btn-sm rounded-pill px-4 fw-bold">
                     Lihat Detail
                 </a>
             </div>

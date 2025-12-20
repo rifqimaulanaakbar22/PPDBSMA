@@ -1,5 +1,5 @@
 <?php
-require_once '../config.php';
+require_once '../core/config.php';
 session_start();
 
 // Redirect if already logged in
@@ -207,7 +207,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="login-card animate-fade-in shadow-lg">
     <div class="spmb-logo-title">
-        <img src="../spmb_logo.png" alt="SPMB Logo" onerror="this.src='../tutwurinobg.png'">
+        <img src="../assets/img/logo_kemdikbud.png" alt="SPMB Logo">
         <!-- Text fallback if logo not found -->
     </div>
     

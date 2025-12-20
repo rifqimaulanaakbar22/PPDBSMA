@@ -1,13 +1,13 @@
 <?php
-require_once 'config.php';
-require_once 'includes/functions.php';
+require_once '../core/config.php';
+require_once '../core/functions.php';
 
 $sekolah_list = getAllSekolah($conn);
 $statistik = getStatistikSekolah($sekolah_list);
 ?>
 
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/navbar.php'; ?>
+<?php include '../includes/header.php'; ?>
+<?php include '../includes/navbar.php'; ?>
 
 <div class="bg-gov-light py-5">
     <div class="container py-4">
@@ -16,7 +16,7 @@ $statistik = getStatistikSekolah($sekolah_list);
             <div class="col-lg-8">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-2">
-                        <li class="breadcrumb-item"><a href="index.php" class="text-decoration-none">Beranda</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>index.php" class="text-decoration-none">Beranda</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Kuota Pendaftaran</li>
                     </ol>
                 </nav>
@@ -150,4 +150,4 @@ document.getElementById('kuotaSearch').addEventListener('input', function() {
 });
 </script>
 
-<?php include 'includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>
