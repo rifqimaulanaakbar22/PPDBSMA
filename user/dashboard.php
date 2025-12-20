@@ -167,6 +167,24 @@ $username = $_SESSION['username'];
                 </div>
             </div>
 
+            <!-- Cetak Bukti Section -->
+            <div class="card border-0 shadow-sm mb-4" style="border-radius: 16px;">
+                <div class="card-body p-4">
+                    <h6 class="fw-bold mb-4"><i class="bi bi-printer me-2"></i>Cetak Bukti</h6>
+                    <div class="d-grid gap-2">
+                        <a href="cetak-pendaftaran.php" class="btn btn-outline-primary btn-sm rounded-pill" target="_blank">
+                            <i class="bi bi-file-earmark-text me-2"></i>Bukti Pendaftaran
+                        </a>
+                        <a href="cetak-diterima.php" class="btn btn-outline-success btn-sm rounded-pill" target="_blank">
+                            <i class="bi bi-check-circle me-2"></i>Bukti Diterima
+                        </a>
+                        <a href="cetak-daftar-ulang.php" class="btn btn-outline-secondary btn-sm rounded-pill" target="_blank">
+                            <i class="bi bi-patch-check me-2"></i>Bukti Daftar Ulang
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <div class="card border-0 shadow-sm bg-dark text-white p-4" style="border-radius: 16px;">
                 <h6 class="fw-bold mb-3">Butuh Bantuan?</h6>
                 <p class="small opacity-75 mb-4">Tim helpdesk kami siap membantu jika Anda mengalami kesulitan dalam proses pendaftaran.</p>

@@ -3,6 +3,27 @@ require_once '../core/config.php';
 require_once '../core/functions.php';
 
 $sekolah_list = getAllSekolah($conn);
+
+// Sort: SMAN with numbers first (1, 2, 3...), then others alphabetically
+usort($sekolah_list, function($a, $b) {
+    // Extract number from school name (e.g., "SMAN 1 PADANG" -> 1)
+    preg_match('/SMAN?\s*(\d+)/i', $a['nama'], $matchA);
+    preg_match('/SMAN?\s*(\d+)/i', $b['nama'], $matchB);
+    
+    $numA = isset($matchA[1]) ? (int)$matchA[1] : 999;
+    $numB = isset($matchB[1]) ? (int)$matchB[1] : 999;
+    
+    // If both have numbers, sort by number
+    if ($numA !== 999 && $numB !== 999) {
+        return $numA - $numB;
+    }
+    // Schools with numbers come first
+    if ($numA !== 999) return -1;
+    if ($numB !== 999) return 1;
+    // Otherwise sort alphabetically
+    return strcmp($a['nama'], $b['nama']);
+});
+
 $statistik = getStatistikSekolah($sekolah_list);
 ?>
 
@@ -37,7 +58,7 @@ $statistik = getStatistikSekolah($sekolah_list);
         </div>
 
         <!-- Filter & Info Section -->
-        <div class="card border-0 shadow-sm rounded-4 mb-4">
+        <div class="card border-0 shadow-sm rounded-4 mb-4 bg-primary text-white">
             <div class="card-body p-4">
                 <div class="row g-3 align-items-center">
                     <div class="col-md-6">
@@ -56,20 +77,20 @@ $statistik = getStatistikSekolah($sekolah_list);
         </div>
 
         <!-- Table Section -->
-        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="card border-0 rounded-4 overflow-hidden" style="box-shadow: 0 8px 35px rgba(13, 110, 253, 0.25);">
             <div class="table-responsive">
-                <table class="table table-hover mb-0 align-middle text-center" id="kuotaTable">
-                    <thead class="bg-primary text-white">
+                <table class="table table-hover mb-0 align-middle text-center" id="kuotaTable" style="font-size: 1.1rem;">
+                    <thead class="bg-primary text-white" style="font-size: 1.15rem;">
                         <tr>
-                            <th width="50">No</th>
-                            <th class="text-start">Nama Sekolah</th>
-                            <th width="80">Rombel</th>
-                            <th width="80">Pagu</th>
-                            <th width="80" class="bg-light bg-opacity-50">Zonasi (35%)</th>
-                            <th width="80">Afirmasi (30%)</th>
-                            <th width="80" class="bg-light bg-opacity-50">Akad (15%)</th>
-                            <th width="80">Non-Akad (15%)</th>
-                            <th width="80" class="bg-light bg-opacity-50">Mutasi (5%)</th>
+                            <th width="80" style="vertical-align: middle;">No</th>
+                            <th style="vertical-align: middle;">Nama Sekolah</th>
+                            <th width="90" style="vertical-align: middle;">Rombel</th>
+                            <th width="90" style="vertical-align: middle;">Pagu</th>
+                            <th width="130">Zonasi (35%)</th>
+                            <th width="130">Afirmasi (30%)</th>
+                            <th width="100">Akad (15%)</th>
+                            <th width="130">Non-Akad (15%)</th>
+                            <th width="100">Mutasi (5%)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,8 +115,8 @@ $statistik = getStatistikSekolah($sekolah_list);
                     ?>
                     <tr class="kuota-row">
                         <td class="text-center fw-bold"><?php echo $i++; ?></td>
-                        <td>
-                            <div class="fw-bold text-primary mb-0"><?php echo htmlspecialchars($sekolah['nama']); ?></div>
+                        <td class="text-start">
+                            <div class="fw-bold text-primary mb-0 fs-5"><?php echo htmlspecialchars($sekolah['nama']); ?></div>
                             <div class="small text-muted"><i class="bi bi-geo-alt me-1"></i><?php echo $sekolah['kecamatan']; ?></div>
                         </td>
                         <td class="text-center"><span class="badge bg-light text-dark border px-3"><?php echo $kelas; ?></span></td>

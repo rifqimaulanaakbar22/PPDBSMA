@@ -77,6 +77,19 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
+    <!-- Smooth Scroll Function -->
+    <script>
+        function smoothScrollTo(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }
+        }
+    </script>
+    
     <!-- Custom JavaScript -->
     <script type="module" src="<?php echo BASE_URL; ?>assets/js/main.js"></script>
 </body>

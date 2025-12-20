@@ -8,21 +8,9 @@
             Portal terintegrasi untuk pendaftaran, pemetaan, hingga pengumuman hasil seleksi PPDB secara transparan.
         </p>
         
-        <div class="row g-4">
-            <!-- Fitur 1 -->
-            <div class="col-md-4 col-lg-3">
-                <a href="<?php echo BASE_URL; ?>user/login.php" class="text-decoration-none">
-                    <div class="card feature-card p-4 text-center shadow-sm">
-                        <div class="feature-icon-wrapper bg-primary bg-opacity-10 mx-auto">
-                            <i class="bi bi-laptop fs-3 text-primary"></i>
-                        </div>
-                        <h6 class="fw-bold mb-2 text-dark">Pendaftaran Online</h6>
-                        <p class="small text-muted mb-0">Registrasi akun & login mandiri dari rumah.</p>
-                    </div>
-                </a>
-            </div>
-            <!-- Fitur 2 -->
-            <div class="col-md-4 col-lg-3">
+        <div class="row g-4 justify-content-center">
+            <!-- Fitur 1: Jalur Pendaftaran -->
+            <div class="col-md-4 col-lg-4">
                 <a href="<?php echo BASE_URL; ?>portal/persyaratan.php" class="text-decoration-none">
                     <div class="card feature-card p-4 text-center shadow-sm">
                         <div class="feature-icon-wrapper bg-success bg-opacity-10 mx-auto">
@@ -34,8 +22,8 @@
                 </a>
             </div>
             <!-- Fitur 3 -->
-            <div class="col-md-4 col-lg-3">
-                <a href="<?php echo BASE_URL; ?>user/formZonasi.php" class="text-decoration-none">
+            <div class="col-md-4 col-lg-4">
+                <a href="#searchSection" class="text-decoration-none" onclick="smoothScrollTo('searchSection'); return false;">
                     <div class="card feature-card p-4 text-center shadow-sm">
                         <div class="feature-icon-wrapper bg-warning bg-opacity-10 mx-auto">
                             <i class="bi bi-map fs-3 text-warning"></i>
@@ -46,7 +34,7 @@
                 </a>
             </div>
             <!-- Fitur 4 -->
-            <div class="col-md-4 col-lg-3">
+            <div class="col-md-4 col-lg-4">
                 <a href="<?php echo BASE_URL; ?>user/dashboard.php" class="text-decoration-none">
                     <div class="card feature-card p-4 text-center shadow-sm">
                         <div class="feature-icon-wrapper bg-info bg-opacity-10 mx-auto">
@@ -58,7 +46,7 @@
                 </a>
             </div>
             <!-- Fitur 5 -->
-            <div class="col-md-4 col-lg-3">
+            <div class="col-md-4 col-lg-4">
                 <a href="<?php echo BASE_URL; ?>portal/monitoring.php" class="text-decoration-none">
                     <div class="card feature-card p-4 text-center shadow-sm">
                         <div class="feature-icon-wrapper bg-danger bg-opacity-10 mx-auto">
@@ -70,8 +58,8 @@
                 </a>
             </div>
             <!-- Fitur 6 -->
-            <div class="col-md-4 col-lg-3">
-                <a href="<?php echo BASE_URL; ?>user/dashboard.php" class="text-decoration-none">
+            <div class="col-md-4 col-lg-4">
+                <a href="<?php echo BASE_URL; ?>user/cetak-pendaftaran.php" class="text-decoration-none">
                     <div class="card feature-card p-4 text-center shadow-sm">
                         <div class="feature-icon-wrapper bg-dark bg-opacity-10 mx-auto">
                             <i class="bi bi-printer fs-3 text-dark"></i>
@@ -81,20 +69,9 @@
                     </div>
                 </a>
             </div>
-            <!-- Fitur 7 -->
-            <div class="col-md-4 col-lg-3">
-                <a href="#footer" class="text-decoration-none">
-                    <div class="card feature-card p-4 text-center shadow-sm">
-                        <div class="feature-icon-wrapper bg-primary bg-opacity-10 mx-auto">
-                            <i class="bi bi-headset fs-3 text-primary"></i>
-                        </div>
-                        <h6 class="fw-bold mb-2 text-dark">Helpdesk & Bantuan</h6>
-                        <p class="small text-muted mb-0">Layanan pengaduan & FAQ pendaftaran.</p>
-                    </div>
-                </a>
-            </div>
+
             <!-- Fitur 8 -->
-            <div class="col-md-4 col-lg-3">
+            <div class="col-md-4 col-lg-4">
                 <a href="<?php echo BASE_URL; ?>portal/jadwal.php" class="text-decoration-none">
                     <div class="card feature-card p-4 text-center shadow-sm">
                         <div class="feature-icon-wrapper bg-secondary bg-opacity-10 mx-auto">

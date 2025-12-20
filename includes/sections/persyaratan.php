@@ -12,35 +12,53 @@
         <div class="row g-4 justify-content-center">
             <!-- Persyaratan Umum -->
             <div class="col-lg-10">
-                <div class="card shadow-md border-0 mb-4 overflow-hidden">
-                    <div class="row g-0">
-                        <div class="col-md-4 bg-primary text-white p-4 d-flex flex-column justify-content-center align-items-center">
-                            <i class="bi bi-shield-check display-3 mb-3"></i>
-                            <h4 class="fw-bold text-center">Persyaratan Umum</h4>
+                <div class="card shadow-md border-0 mb-4 p-4">
+                    <h4 class="fw-bold mb-4 d-flex align-items-center">
+                        <i class="bi bi-shield-check text-primary me-2"></i>
+                        Persyaratan Umum
+                    </h4>
+                    
+                    <!-- Item 1: Usia -->
+                    <div class="d-flex align-items-start p-3 bg-light rounded-3 mb-3">
+                        <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                            <i class="bi bi-calendar-check text-primary"></i>
                         </div>
-                        <div class="col-md-8 p-4 bg-light bg-opacity-50">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="d-flex mb-3">
-                                        <i class="bi bi-1-circle-fill text-primary me-2"></i>
-                                        <span><strong>Usia Maksimal:</strong> 21 tahun per 1 Juli (dibuktikan akta/surat lahir).</span>
-                                    </div>
-                                    <div class="d-flex mb-3">
-                                        <i class="bi bi-2-circle-fill text-primary me-2"></i>
-                                        <span><strong>Pendidikan:</strong> Lulus SMP/MTs (ijazah atau SKL).</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="d-flex mb-3">
-                                        <i class="bi bi-3-circle-fill text-primary me-2"></i>
-                                        <span><strong>Tahun Lulus:</strong> Tahun berjalan atau tahun sebelumnya.</span>
-                                    </div>
-                                    <div class="d-flex mb-3 text-warning">
-                                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                                        <small>Boarding negeri tidak boleh ikut PPDB SMA/SMK lain.</small>
-                                    </div>
-                                </div>
-                            </div>
+                        <div>
+                            <strong>Usia Maksimal</strong>
+                            <p class="text-muted mb-0 small">21 tahun per 1 Juli (dibuktikan akta kelahiran/surat lahir).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2: Pendidikan -->
+                    <div class="d-flex align-items-start p-3 bg-light rounded-3 mb-3">
+                        <div class="bg-success bg-opacity-10 p-2 rounded me-3">
+                            <i class="bi bi-mortarboard text-success"></i>
+                        </div>
+                        <div>
+                            <strong>Pendidikan</strong>
+                            <p class="text-muted mb-0 small">Lulus SMP/MTs (dibuktikan dengan ijazah atau SKL).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3: Tahun Lulus -->
+                    <div class="d-flex align-items-start p-3 bg-light rounded-3 mb-3">
+                        <div class="bg-info bg-opacity-10 p-2 rounded me-3">
+                            <i class="bi bi-calendar2-event text-info"></i>
+                        </div>
+                        <div>
+                            <strong>Tahun Lulus</strong>
+                            <p class="text-muted mb-0 small">Tahun berjalan atau tahun sebelumnya.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4: Warning -->
+                    <div class="d-flex align-items-start p-3 bg-warning bg-opacity-10 rounded-3">
+                        <div class="bg-warning bg-opacity-25 p-2 rounded me-3">
+                            <i class="bi bi-exclamation-triangle text-warning"></i>
+                        </div>
+                        <div>
+                            <strong class="text-warning">Perhatian</strong>
+                            <p class="text-muted mb-0 small">Boarding negeri tidak boleh ikut PPDB SMA/SMK lain.</p>
                         </div>
                     </div>
                 </div>

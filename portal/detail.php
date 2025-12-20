@@ -15,26 +15,47 @@ $sekolah = mysqli_fetch_assoc($result);
 <?php include '../includes/header.php'; ?>
 <?php include '../includes/navbar.php'; ?>
 
+<style>
+    .card { border-radius: 12px; border: none; }
+    .card-header { border-radius: 12px 12px 0 0 !important; }
+    .foto-sekolah { width: 100%; border-radius: 12px; max-height: 300px; object-fit: cover; }
+    #map { height: 350px; border-radius: 12px; }
+    .card.shadow-sm { box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important; }
+    .card-header.bg-secondary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; }
+    .card-header.bg-primary { background: linear-gradient(135deg, #0d6efd 0%, #0099ff 100%) !important; }
+    .btn-primary { border-radius: 50px; padding: 10px 25px; }
+    li i { margin-right: 8px; }
+</style>
+
     <div class="container my-5">
         <div class="row">
             <!-- Kolom Kiri: Foto dan Peta -->
             <div class="col-lg-8">
+                <!-- Card 1: Nama dan Foto Sekolah -->
                 <div class="card shadow-sm mb-4">
                     <div class="card-body">
+                        <!-- NAMA SEKOLAH -->
+                        <h2 class="mb-4"><?php echo $sekolah['nama']; ?></h2>
+
                         <!-- FOTO SEKOLAH -->
                         <?php if (!empty($sekolah['foto']) && file_exists('../uploads/sekolah/' . $sekolah['foto'])): ?>
                             <img src="../uploads/sekolah/<?php echo $sekolah['foto']; ?>" 
-                                 class="foto-sekolah mb-4" alt="<?php echo $sekolah['nama']; ?>">
+                                 class="foto-sekolah" alt="<?php echo $sekolah['nama']; ?>">
                         <?php else: ?>
-                            <div class="alert alert-secondary text-center mb-4">
+                            <div class="alert alert-secondary text-center mb-0">
                                 <i class="bi bi-image fs-1"></i>
                                 <p class="mb-0">Foto belum tersedia</p>
                             </div>
                         <?php endif; ?>
-                        
-                        <h2 class="mb-3"><?php echo $sekolah['nama']; ?></h2>
+                    </div>
+                </div>
 
-                        <h5 class="mb-3">Lokasi di Peta</h5>
+                <!-- Card 2: Lokasi di Peta -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="bi bi-geo-alt me-2"></i>Lokasi di Peta</h5>
+                    </div>
+                    <div class="card-body">
                         <div id="map" class="mb-3"></div>
 
                         <a href="../index.php" class="btn btn-primary">
